@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="ocean">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dear Diary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+  <div class="petals" id="petals"></div>
+
+  <!-- ── HEADER ── (outside app-wrap so it spans full width) -->
+    <header class="app-header">
+      <a href="index.html" class="app-brand">dear diary ♡</a>
+
+      <nav class="app-nav" id="app-nav">
+        <button class="app-nav-btn active" data-page="diary" onclick="navTo('diary')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          My Diary
+        </button>
+        <button class="app-nav-btn" data-page="friends" onclick="navTo('friends')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Friends
+          <span class="nav-badge hidden" id="req-count"></span>
+        </button>
+      </nav>
+
+      <div class="header-controls">
+        <select id="theme-select" onchange="setTheme(this.value)" title="Change theme">
+          <option value="ocean">🌊 Ocean</option>
+          <option value="blueberry">🫐 Blueberry</option>
+          <option value="pastelpop">🎨 Pastel Pop</option>
+          <option value="candlelight">🕯️ Candlelight</option>
+          <option value="matcha">🍵 Matcha</option>
+          <option value="terracotta">🧱 Terracotta</option>
+          <option value="crimson">🌹 Crimson</option>
+          <option value="abyss">🔵 Abyss</option>
+          <option value="galaxy">🌌 Galaxy</option>
+          <option value="vaporwave">🌮 Vaporwave</option>
+          <option value="botanical">🪴 Botanical</option>
+          <option value="espresso">☕ Espresso</option>
+          <option value="newspaper">📰 Newspaper</option>
+        </select>
+        <div class="user-pill" id="user-pill">🌸 …</div>
+        <button class="header-btn signout-btn" onclick="doSignOut()" title="Sign out" aria-label="Sign out">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <span class="btn-label">Sign Out</span>
+        </button>
+      </div>
+  </header>
+
+  <div id="app-wrap" class="write-mode">
+
+    <!-- ══════════════════════════════════════════════
+         PAGE: MY DIARY
+    ══════════════════════════════════════════════ -->
+    <div id="page-diary" class="page active">
+
+      <!-- Diary inner tabs -->
+      <div class="inner-tabs" id="diary-tabs">
+        <button class="inner-tab active" data-dtab="write" onclick="switchDiaryTab('write')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          Write
+        </button>
+        <button class="inner-tab" data-dtab="all" onclick="switchDiaryTab('all')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          All Entries
+        </button>
+        <button class="inner-tab" data-dtab="mine" onclick="switchDiaryTab('mine')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          My Entries
+        </button>
+        <button class="inner-tab" data-dtab="friends" onclick="switchDiaryTab('friends')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          Friends' Entries
+        </button>
+      </div>
+
+      <!-- ── Write Tab ── -->
+      <div id="diary-compose" class="diary-section active">
+        <div class="compose-wrap">
+          <div class="compose-card">
+            <div class="compose-top">
+              <span class="greeting" id="greeting">what's on your mind?</span>
+              <span class="date-chip" id="date-chip"></span>
+            </div>
+            <textarea id="entry-text" placeholder="Write freely… this space is yours ♡" rows="10"></textarea>
+            <div class="compose-footer">
+              <div class="priv-pills-wrap">
+                <div class="priv-pills">
+                  <button class="priv-pill on" data-v="private" onclick="setPriv(this)">🔒 Private</button>
+                  <button class="priv-pill" data-v="friends" onclick="setPriv(this)">💌 Friends</button>
+                </div>
+              </div>
+              <div class="compose-actions">
+                <span class="word-count" id="word-count">0 / 1000</span>
+                <button class="btn-cancel hidden" id="cancel-btn" onclick="cancelEdit()">Cancel</button>
+                <button class="btn-save" id="save-btn" onclick="saveEntry()"><span>✦</span> Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Entries Tab (All / My / Friends) ── -->
+      <div id="diary-entries" class="diary-section">
+        <div class="toolbar">
+          <div class="toolbar-right" style="width:100%">
+            <select class="sort-select" id="sort-select" onchange="setSort(this.value)" title="Sort entries">
+              <option value="date-desc">Newest First</option>
+              <option value="date-asc">Oldest First</option>
+              <option value="alpha-asc">A–Z</option>
+              <option value="alpha-desc">Z–A</option>
+            </select>
+            <div class="search-wrap">
+              <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="search-input" placeholder="Search entries…" oninput="onSearch(this.value)" />
+            </div>
+          </div>
+        </div>
+        <div class="entries-list" id="list">
+          <div class="loading-wrap">Loading… ✿</div>
+        </div>
+        <div class="pagination" id="pagination"></div>
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+         PAGE: FRIENDS
+    ══════════════════════════════════════════════ -->
+    <div id="page-friends" class="page">
+
+      <div class="page-hero">
+        <div>
+          <h1 class="page-title">Friends ♡</h1>
+          <p class="page-sub">Connect with friends and share diary moments</p>
+        </div>
+      </div>
+
+      <!-- Inner tabs -->
+      <div class="inner-tabs" id="friends-tabs">
+        <button class="inner-tab active" data-ftab="add" onclick="switchFriendsTab('add')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Friend
+        </button>
+        <button class="inner-tab" data-ftab="requests" onclick="switchFriendsTab('requests')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          Requests
+          <span class="tab-badge hidden" id="req-tab-badge"></span>
+        </button>
+        <button class="inner-tab" data-ftab="my-friends" onclick="switchFriendsTab('my-friends')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          My Friends
+        </button>
+      </div>
+
+      <!-- Tab: Add Friend -->
+      <div id="ftab-add" class="friends-tab active">
+        <div class="ftab-card">
+          <div class="ftab-icon">💌</div>
+          <h2>Invite a Friend</h2>
+          <p>Enter your friend's email to send them a connection request. Once accepted, you can share diary entries with each other.</p>
+          <div class="add-friend-form">
+            <input type="email" id="friend-email" placeholder="friend@email.com" />
+            <button class="btn-primary-sm" onclick="sendFriendRequest()">Send Request ♡</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Requests -->
+      <div id="ftab-requests" class="friends-tab">
+        <div class="requests-grid">
+          <div class="req-section">
+            <h3 class="req-section-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg>
+              Incoming Requests
+            </h3>
+            <div id="requests-list"><p class="empty-note">No pending requests ✿</p></div>
+          </div>
+          <div class="req-section">
+            <h3 class="req-section-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Sent Requests
+            </h3>
+            <div id="sent-requests-list"><p class="empty-note">None pending ✿</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: My Friends -->
+      <div id="ftab-my-friends" class="friends-tab">
+        <div id="friends-list-wrap">
+          <div id="friends-list"><p class="empty-note">No friends yet — send a request! ✿</p></div>
+        </div>
+      </div>
+
+    </div><!-- end #page-friends -->
+
+  </div><!-- end #app-wrap -->
+
+  <!-- DELETE CONFIRM MODAL -->
+  <div class="modal-backdrop hidden" id="delete-backdrop" onclick="handleBackdropClick(event, 'delete-backdrop')">
+    <div class="modal delete-modal" id="delete-modal">
+      <p id="modal-msg">Delete this entry?</p>
+      <div class="modal-btns">
+        <button class="btn-danger" id="modal-ok">Delete</button>
+        <button onclick="closeDeleteModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/crypto.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

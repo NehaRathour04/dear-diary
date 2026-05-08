@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dear Diary — Sign In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>html { overflow: hidden; height: 100%; }</style>
+</head>
+<body class="auth-page">
+  <div class="particles" id="particles"></div>
+
+  <nav class="auth-nav">
+    <a href="index.html" class="brand-logo">dear diary ♡</a>
+  </nav>
+
+  <main class="auth-main">
+    <div class="auth-card">
+      <div class="auth-card-top">
+        <h1 id="auth-heading">Welcome Back ♡</h1>
+        <p id="auth-subheading">Your encrypted diary awaits</p>
+      </div>
+
+      <div class="auth-tabs" id="auth-tabs">
+        <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">Sign In</button>
+        <button class="auth-tab" id="tab-signup" onclick="switchTab('signup')">Create Account</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <div id="login-form">
+        <div class="field-group">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" placeholder="your@email.com" autocomplete="email" />
+        </div>
+        <div class="field-group">
+          <label for="login-password">Password</label>
+          <div class="pass-wrap">
+            <input type="password" id="login-password" placeholder="Your password" autocomplete="current-password" />
+            <button type="button" class="eye-toggle" onclick="togglePass('login-password', this)" aria-label="Toggle password visibility">
+              <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="eye-off hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+          </div>
+        </div>
+        <div id="login-msg" class="auth-msg"></div>
+        <button class="btn-primary-full" id="login-btn" onclick="doLogin()">Sign In ♡</button>
+      </div>
+
+      <!-- SIGNUP FORM -->
+      <div id="signup-form" style="display:none">
+        <div class="field-group">
+          <label for="signup-name">Your Name</label>
+          <input type="text" id="signup-name" placeholder="What should we call you?" autocomplete="name" />
+        </div>
+        <div class="field-group">
+          <label for="signup-email">Email</label>
+          <input type="email" id="signup-email" placeholder="your@email.com" autocomplete="email" />
+        </div>
+        <div class="field-group">
+          <label for="signup-password">Password</label>
+          <div class="pass-wrap">
+            <input type="password" id="signup-password" placeholder="Choose a strong password" autocomplete="new-password" />
+            <button type="button" class="eye-toggle" onclick="togglePass('signup-password', this)" aria-label="Toggle password visibility">
+              <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="eye-off hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+          </div>
+          
+        </div>
+        <div id="signup-msg" class="auth-msg"></div>
+        <button class="btn-primary-full" id="signup-btn" onclick="doSignup()">Create My Diary ♡</button>
+      </div>
+
+    </div>
+
+    <p class="auth-back"><a href="index.html">← Back to Home</a></p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/crypto.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    // Floating symbols
+    (function() {
+      const symbols = ['✿','❀','♡','✦','˖','°','·'];
+      const c = document.getElementById('particles');
+      for (let i = 0; i < 25; i++) {
+        const el = document.createElement('div');
+        el.className = 'particle';
+        el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        const dur = 14 + Math.random() * 18;
+        el.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*120}%;font-size:${0.4+Math.random()*1}rem;animation-duration:${dur}s;animation-delay:${-(Math.random()*dur)}s;opacity:${0.06+Math.random()*0.18}`;
+        c.appendChild(el);
+      }
+    })();
+
+    // Tab switch + URL param init
+    function switchTab(tab) {
+      const forms = ['login-form', 'signup-form'];
+      forms.forEach(id => document.getElementById(id).style.display = 'none');
+      ['login-msg','signup-msg'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) { el.textContent = ''; el.className = 'auth-msg'; }
+      });
+
+      const tabs = document.getElementById('auth-tabs');
+
+      if (tab === 'login') {
+        document.getElementById('login-form').style.display = 'block';
+        document.getElementById('tab-login').classList.add('active');
+        document.getElementById('tab-signup').classList.remove('active');
+        document.getElementById('auth-heading').textContent = 'Welcome Back ♡';
+        document.getElementById('auth-subheading').textContent = 'Your encrypted diary awaits';
+        tabs.style.display = 'flex';
+      } else if (tab === 'signup') {
+        document.getElementById('signup-form').style.display = 'block';
+        document.getElementById('tab-login').classList.remove('active');
+        document.getElementById('tab-signup').classList.add('active');
+        document.getElementById('auth-heading').textContent = 'Create Your Diary ♡';
+        document.getElementById('auth-subheading').textContent = 'Free forever · Truly private';
+        tabs.style.display = 'flex';
+      }
+    }
+
+    function togglePass(inputId, btn) {
+      const input = document.getElementById(inputId);
+      const showing = input.type === 'password';
+      input.type = showing ? 'text' : 'password';
+      btn.querySelector('.eye-open').classList.toggle('hidden', showing);
+      btn.querySelector('.eye-off').classList.toggle('hidden', !showing);
+    }
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        const loginVisible = document.getElementById('login-form').style.display !== 'none';
+        const signupVisible = document.getElementById('signup-form').style.display !== 'none';
+        if (loginVisible)       doLogin();
+        else if (signupVisible) doSignup();
+      }
+    });
+
+    // Read URL param
+    const mode = new URLSearchParams(location.search).get('mode');
+    if (mode === 'signup') switchTab('signup');
+  </script>
+</body>
+</html>

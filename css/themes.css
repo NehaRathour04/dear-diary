@@ -1,0 +1,266 @@
+/* ══════════════════════════════════════════════
+   FONTS — shared across all themes
+   ══════════════════════════════════════════════ */
+:root {
+  --font-d: 'Dancing Script', cursive;
+  --font-s: 'Playfair Display', Georgia, serif;
+  --font-b: 'Quicksand', sans-serif;
+  color-scheme: light;
+}
+
+/* Dark themes — tell the browser to render native controls (select, input, scrollbar) in dark mode */
+:root[data-theme="galaxy"],
+:root[data-theme="abyss"],
+:root[data-theme="botanical"],
+:root[data-theme="espresso"],
+:root[data-theme="vaporwave"] {
+  color-scheme: dark;
+}
+
+/* ══════════════════════════════════════════════
+   🌊 OCEAN — hero theme (default)
+   ══════════════════════════════════════════════ */
+:root,
+:root[data-theme="ocean"] {
+  --rose:      #38bdf8;
+  --rose-deep: #0ea5e9;
+  --rose-pale: #e0f2fe;
+  --blush:     #f0f9ff;
+  --cream:     #f8fdff;
+  --lavender:  #bae6fd;
+  --lav-deep:  #7dd3fc;
+  --text:      #0f172a;
+  --text-soft: #334155;
+  --text-hint: #64748b;
+  --white:     #ffffff;
+  --shadow:    rgba(14,165,233,0.15);
+  --shadow-s:  rgba(0,0,0,0.08);
+}
+
+/* ══════════════════════════════════════════════
+   🌌 GALAXY — deep space with starlight
+   ══════════════════════════════════════════════ */
+:root[data-theme="galaxy"] {
+  --rose:      #818cf8;
+  --rose-deep: #6366f1;
+  --rose-pale: #1e1b4b;
+  --blush:     #0f0e2a;
+  --cream:     #13123a;
+  --lavender:  #2d2a6e;
+  --lav-deep:  #c7d2fe;
+  --text:      #e0e7ff;
+  --text-soft: #a5b4fc;
+  --text-hint: #818cf8;
+  --white:     #1a1845;
+  --shadow:    rgba(99,102,241,0.25);
+  --shadow-s:  rgba(0,0,0,0.60);
+}
+
+/* ══════════════════════════════════════════════
+   🔵 ABYSS — deep navy with electric blue
+   ══════════════════════════════════════════════ */
+:root[data-theme="abyss"] {
+  --rose:      #22d3ee;
+  --rose-deep: #06b6d4;
+  --rose-pale: #001a24;
+  --blush:     #000d14;
+  --cream:     #00111c;
+  --lavender:  #002a3d;
+  --lav-deep:  #67e8f9;
+  --text:      #ecfeff;
+  --text-soft: #a5f3fc;
+  --text-hint: #22d3ee;
+  --white:     #001824;
+  --shadow:    rgba(6,182,212,0.22);
+  --shadow-s:  rgba(0,0,0,0.70);
+}
+
+/* ══════════════════════════════════════════════
+   🕯️ CANDLELIGHT — warm amber cozy cafe
+   ══════════════════════════════════════════════ */
+:root[data-theme="candlelight"] {
+  --rose:      #f59e0b;
+  --rose-deep: #b45309;
+  --rose-pale: #fef9e7;
+  --blush:     #fffdf0;
+  --cream:     #ffffff;
+  --lavender:  #fde68a;
+  --lav-deep:  #92400e;
+  --text:      #1c1203;
+  --text-soft: #3d2007;
+  --text-hint: #78350f;
+  --white:     #ffffff;
+  --shadow:    rgba(245,158,11,0.20);
+  --shadow-s:  rgba(0,0,0,0.08);
+}
+
+/* ══════════════════════════════════════════════
+   🍵 MATCHA — muted sage japanese tea house
+   ══════════════════════════════════════════════ */
+:root[data-theme="matcha"] {
+  --rose:      #6b9e6b;
+  --rose-deep: #3d6b3d;
+  --rose-pale: #eef5ee;
+  --blush:     #f5faf5;
+  --cream:     #fafdf5;
+  --lavender:  #c8dfc8;
+  --lav-deep:  #2d502d;
+  --text:      #1a2e1a;
+  --text-soft: #2d4a2d;
+  --text-hint: #4a724a;
+  --white:     #ffffff;
+  --shadow:    rgba(107,158,107,0.18);
+  --shadow-s:  rgba(0,0,0,0.07);
+}
+
+/* ══════════════════════════════════════════════
+   🧱 TERRACOTTA — earthy clay and warm sand
+   ══════════════════════════════════════════════ */
+:root[data-theme="terracotta"] {
+  --rose:      #c1644a;
+  --rose-deep: #9a3d27;
+  --rose-pale: #fdf0ec;
+  --blush:     #fdf8f5;
+  --cream:     #ffffff;
+  --lavender:  #f5d5ca;
+  --lav-deep:  #7a2e1a;
+  --text:      #2a0f08;
+  --text-soft: #5a2a1a;
+  --text-hint: #9a4a30;
+  --white:     #ffffff;
+  --shadow:    rgba(193,100,74,0.20);
+  --shadow-s:  rgba(0,0,0,0.08);
+}
+
+/* ══════════════════════════════════════════════
+   🪴 BOTANICAL — jungle green with lime
+   ══════════════════════════════════════════════ */
+:root[data-theme="botanical"] {
+  --rose:      #84cc16;
+  --rose-deep: #4d7c0f;
+  --rose-pale: #1a2a00;
+  --blush:     #0f1a00;
+  --cream:     #141f00;
+  --lavender:  #243d00;
+  --lav-deep:  #bef264;
+  --text:      #ecfccb;
+  --text-soft: #d9f99d;
+  --text-hint: #86efac;
+  --white:     #182200;
+  --shadow:    rgba(132,204,22,0.22);
+  --shadow-s:  rgba(0,0,0,0.60);
+}
+
+/* ══════════════════════════════════════════════
+   🫐 BLUEBERRY — deep indigo with soft lilac
+   ══════════════════════════════════════════════ */
+:root[data-theme="blueberry"] {
+  --rose:      #a78bfa;
+  --rose-deep: #7c3aed;
+  --rose-pale: #f5f3ff;
+  --blush:     #faf9ff;
+  --cream:     #ffffff;
+  --lavender:  #ede9fe;
+  --lav-deep:  #5b21b6;
+  --text:      #1e0a3c;
+  --text-soft: #3b1a6e;
+  --text-hint: #6d28d9;
+  --white:     #ffffff;
+  --shadow:    rgba(167,139,250,0.22);
+  --shadow-s:  rgba(0,0,0,0.08);
+}
+
+/* ══════════════════════════════════════════════
+   🌹 CRIMSON — deep wine with rose gold
+   ══════════════════════════════════════════════ */
+:root[data-theme="crimson"] {
+  --rose:      #e11d48;
+  --rose-deep: #9f1239;
+  --rose-pale: #fff1f2;
+  --blush:     #fff5f6;
+  --cream:     #ffffff;
+  --lavender:  #fecdd3;
+  --lav-deep:  #881337;
+  --text:      #1a0008;
+  --text-soft: #4c0519;
+  --text-hint: #9f1239;
+  --white:     #ffffff;
+  --shadow:    rgba(225,29,72,0.20);
+  --shadow-s:  rgba(0,0,0,0.08);
+}
+
+/* ══════════════════════════════════════════════
+   🎨 PASTEL POP — soft playful multicolor
+   ══════════════════════════════════════════════ */
+:root[data-theme="pastelpop"] {
+  --rose:      #f472b6;
+  --rose-deep: #a855f7;
+  --rose-pale: #fdf4ff;
+  --blush:     #fef9ff;
+  --cream:     #ffffff;
+  --lavender:  #f0abfc;
+  --lav-deep:  #7e22ce;
+  --text:      #2d0a3d;
+  --text-soft: #6b21a8;
+  --text-hint: #a855f7;
+  --white:     #ffffff;
+  --shadow:    rgba(244,114,182,0.22);
+  --shadow-s:  rgba(0,0,0,0.07);
+}
+
+/* ══════════════════════════════════════════════
+   📰 NEWSPAPER — black white and sepia
+   ══════════════════════════════════════════════ */
+:root[data-theme="newspaper"] {
+  --rose:      #44403c;
+  --rose-deep: #1c1917;
+  --rose-pale: #fafaf9;
+  --blush:     #fafaf9;
+  --cream:     #ffffff;
+  --lavender:  #e7e5e4;
+  --lav-deep:  #292524;
+  --text:      #0c0a09;
+  --text-soft: #44403c;
+  --text-hint: #78716c;
+  --white:     #ffffff;
+  --shadow:    rgba(68,64,60,0.15);
+  --shadow-s:  rgba(0,0,0,0.08);
+}
+
+/* ══════════════════════════════════════════════
+   🌮 VAPORWAVE — hot pink neon retro
+   ══════════════════════════════════════════════ */
+:root[data-theme="vaporwave"] {
+  --rose:      #f0abfc;
+  --rose-deep: #d946ef;
+  --rose-pale: #1a0022;
+  --blush:     #0d0014;
+  --cream:     #13001e;
+  --lavender:  #2d0040;
+  --lav-deep:  #f5d0fe;
+  --text:      #fdf4ff;
+  --text-soft: #f0abfc;
+  --text-hint: #c026d3;
+  --white:     #1a0028;
+  --shadow:    rgba(240,171,252,0.25);
+  --shadow-s:  rgba(0,0,0,0.60);
+}
+
+/* ══════════════════════════════════════════════
+   ☕ ESPRESSO — near black with cream
+   ══════════════════════════════════════════════ */
+:root[data-theme="espresso"] {
+  --rose:      #d4a574;
+  --rose-deep: #a0714a;
+  --rose-pale: #1a1410;
+  --blush:     #0d0b08;
+  --cream:     #141008;
+  --lavender:  #2a2018;
+  --lav-deep:  #f5e6d0;
+  --text:      #fdf8f0;
+  --text-soft: #e8d5b0;
+  --text-hint: #b8956a;
+  --white:     #1a1208;
+  --shadow:    rgba(212,165,116,0.18);
+  --shadow-s:  rgba(0,0,0,0.70);
+}

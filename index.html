@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dear Diary — Your Private, Encrypted Journal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="landing-page">
+  <div class="particles" id="particles"></div>
+
+  <!-- NAV -->
+  <nav class="landing-nav" id="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand-logo">dear diary ♡</a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how">How It Works</a>
+        <a href="#security">Security</a>
+      </div>
+      <div class="nav-cta">
+        <a href="auth.html?mode=login" class="btn-ghost-sm">Sign In</a>
+        <a href="auth.html?mode=signup" class="btn-violet-sm">Get Started Free</a>
+      </div>
+      <button class="nav-burger" onclick="toggleNav()" aria-label="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="#features" onclick="toggleNav()">Features</a>
+      <a href="#how" onclick="toggleNav()">How It Works</a>
+      <a href="#security" onclick="toggleNav()">Security</a>
+      <a href="auth.html?mode=login">Sign In</a>
+      <a href="auth.html?mode=signup" class="btn-violet-sm">Get Started Free</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">✦ Zero-Knowledge · End-to-End Encrypted</div>
+        <h1 class="hero-title">Your Thoughts,<br /><em>Completely Private</em></h1>
+        <p class="hero-sub">
+          Dear Diary encrypts every word before it leaves your device.<br />
+          Not even we can read what you write.
+        </p>
+        <div class="hero-btns">
+          <a href="auth.html?mode=signup" class="btn-primary-lg">Start Writing Free ♡</a>
+          <a href="#how" class="btn-ghost-lg scroll-link">See How It Works ↓</a>
+        </div>
+        <p class="hero-note">No credit card &middot; No ads &middot; No snooping</p>
+      </div>
+
+      <div class="hero-mockup">
+        <div class="mockup-chrome">
+          <div class="mockup-topbar">
+            <div class="mockup-dots"><span></span><span></span><span></span></div>
+            <div class="mockup-url">dear-diary.app</div>
+          </div>
+          <div class="mockup-body">
+            <div class="mockup-header">
+              <span class="mockup-logo">dear diary ♡</span>
+              <span class="mockup-user-pill">🌸 neha</span>
+            </div>
+            <div class="mockup-compose">
+              <div class="mockup-prompt">what's on your mind, darling?</div>
+              <div class="mockup-textarea"></div>
+            </div>
+            <div class="mockup-entry-card">
+              <div class="mockup-meta">
+                <span class="mockup-badge private">🔒 Private</span>
+                <span class="mockup-date">May 7 · 9:41 pm</span>
+              </div>
+              <p class="mockup-text">Today was honestly one of the best days I've had in a while. I woke up to the smell of rain and…</p>
+            </div>
+            <div class="mockup-entry-card dim">
+              <div class="mockup-meta">
+                <span class="mockup-badge friends">💌 Friends</span>
+                <span class="mockup-date">May 6</span>
+              </div>
+              <p class="mockup-text">I've been thinking a lot about what I really want. Sometimes it feels like everything is finally…</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section" id="features">
+    <div class="section-container">
+      <div class="section-label">Why Dear Diary</div>
+      <h2 class="section-title">A Journal That Actually Keeps Secrets</h2>
+      <p class="section-sub">Everything you need to write freely — with nothing to worry about</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔐</div>
+          <h3>End-to-End Encrypted</h3>
+          <p>Entries are encrypted on your device using AES-256-GCM before any data is sent. The server only ever sees ciphertext.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔑</div>
+          <h3>Zero-Knowledge</h3>
+          <p>Your password never leaves your browser — it generates your encryption keys locally. Even a server breach exposes nothing readable.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👥</div>
+          <h3>Share With Friends</h3>
+          <p>Choose entries to share with trusted friends. Each friend gets their own encrypted copy — private entries stay completely hidden.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>13 Beautiful Themes</h3>
+          <p>From soft ocean blues to deep midnight modes, Galaxy, Espresso, Vaporwave, and more. Make your diary feel like yours.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>Works Everywhere</h3>
+          <p>Fully responsive — phone, tablet, or desktop. Your diary goes wherever you do, always encrypted, always accessible.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✨</div>
+          <h3>Distraction-Free Writing</h3>
+          <p>A calm, beautiful interface with gentle animations and a clean compose area. Just you and your thoughts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section" id="how">
+    <div class="section-container">
+      <div class="section-label">Getting Started</div>
+      <h2 class="section-title">Simple to Start, Impossible to Snoop</h2>
+
+      <div class="steps-row">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h3>Create Your Account</h3>
+          <p>Sign up with your email and a strong password. Your password derives your unique encryption keys locally — we never see or store it.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h3>Write Anything</h3>
+          <p>Pour your thoughts into a private entry or share moments with friends. Every entry is encrypted before it ever leaves your browser.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h3>Only You Hold the Key</h3>
+          <p>Entries live in the cloud but can only be unlocked by you. There is no backdoor, no admin access, no way in without your password.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECURITY -->
+  <section class="security-section" id="security">
+    <div class="section-container">
+      <div class="section-label light">Under the Hood</div>
+      <h2 class="section-title light">Military-Grade Encryption,<br /><em>Actually Explained</em></h2>
+      <p class="section-sub light">No buzzwords. Here's exactly how your data is protected.</p>
+
+      <div class="security-grid">
+        <div class="security-card">
+          <div class="sec-badge">PBKDF2</div>
+          <h3>Key Derivation</h3>
+          <p>Your password is put through PBKDF2 (100,000 iterations, SHA-256) to generate a strong AES key. Brute-force attacks become computationally infeasible.</p>
+        </div>
+        <div class="security-card">
+          <div class="sec-badge">AES-256-GCM</div>
+          <h3>Content Encryption</h3>
+          <p>A fresh random AES-256 key encrypts your entry content. GCM mode also authenticates the data — any tampering is immediately detected and rejected.</p>
+        </div>
+        <div class="security-card">
+          <div class="sec-badge">RSA-2048 OAEP</div>
+          <h3>Key Exchange</h3>
+          <p>RSA-OAEP wraps each entry's AES key. Your public key is stored plaintext; your private key is encrypted with AES-256 before storage — even we can't access it.</p>
+        </div>
+        <div class="security-card">
+          <div class="sec-badge">Web Crypto API</div>
+          <h3>Browser-Native</h3>
+          <p>All cryptographic operations run in your browser using the built-in Web Crypto API. There are no third-party crypto libraries to trust or audit.</p>
+        </div>
+      </div>
+
+      <div class="security-warning">
+        <span>⚠️</span>
+        <p><strong>Important:</strong> Because your password is never stored, <strong>forgetting it means losing your entries permanently.</strong> There is no backdoor. Choose a strong password and keep it safe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="section-container cta-inner">
+      <h2>Ready to Write Freely?</h2>
+      <p>Join Dear Diary and start keeping secrets the right way.</p>
+      <a href="auth.html?mode=signup" class="btn-primary-lg">Create Your Free Diary ♡</a>
+      <p class="hero-note">No credit card required</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="landing-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">dear diary ♡</div>
+      <p class="footer-tagline">Your thoughts, encrypted and yours alone.</p>
+      <nav class="footer-links">
+        <a href="auth.html?mode=login">Sign In</a>
+        <a href="auth.html?mode=signup">Sign Up</a>
+        <a href="#features">Features</a>
+        <a href="#security">Security</a>
+      </nav>
+      <p class="footer-credit">Built with ♡ and strong cryptography</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js"></script>
+  <script>
+    // Floating symbols
+    (function spawnParticles() {
+      const symbols = ['✿','❀','♡','✦','˖','°','·','✾'];
+      const c = document.getElementById('particles');
+      for (let i = 0; i < 35; i++) {
+        const el = document.createElement('div');
+        el.className = 'particle';
+        el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        const dur = 14 + Math.random() * 18;
+        el.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*120}%;font-size:${0.5+Math.random()*1.1}rem;animation-duration:${dur}s;animation-delay:${-(Math.random()*dur)}s`;
+        c.appendChild(el);
+      }
+    })();
+
+    // Sticky nav
+    window.addEventListener('scroll', () => {
+      document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile nav toggle
+    function toggleNav() {
+      document.getElementById('nav-mobile').classList.toggle('open');
+      document.querySelector('.nav-burger').classList.toggle('open');
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { t.scrollIntoView({ behavior:'smooth', block:'start' }); }
+        document.getElementById('nav-mobile').classList.remove('open');
+      });
+    });
+
+    // Auth-aware UI: swap Sign In / Get Started with profile when logged in
+    (async function checkLoggedIn() {
+      try {
+        const { data: { session } } = await sb.auth.getSession();
+        if (!session) return;
+
+        const name = sessionStorage.getItem('diary_name')
+          || session.user.user_metadata?.display_name
+          || session.user.email.split('@')[0];
+
+        // Desktop nav CTA → profile pill + open diary button
+        document.querySelector('.nav-cta').innerHTML = `
+          <span class="nav-user-pill">🌸 ${name}</span>
+          <a href="app.html" class="btn-violet-sm">Open My Diary ♡</a>
+        `;
+
+        // Mobile nav → add open diary link
+        const mob = document.getElementById('nav-mobile');
+        mob.insertAdjacentHTML('beforeend', `
+          <hr>
+          <a href="app.html" style="color:rgba(167,139,250,0.9);font-weight:600">🌸 ${name}</a>
+          <a href="app.html" class="btn-violet-sm" style="margin-top:4px">Open My Diary ♡</a>
+        `);
+
+        // Hero buttons → go straight to diary
+        document.querySelector('.hero-btns').innerHTML = `
+          <a href="app.html" class="btn-primary-lg">Open My Diary ♡</a>
+          <a href="app.html" class="btn-ghost-lg">Continue Writing →</a>
+        `;
+        document.querySelector('.hero-note').textContent = 'Welcome back ♡ Your entries are safe and encrypted.';
+
+        // CTA section → open diary instead of sign up
+        const ctaBtn = document.querySelector('.cta-section .btn-primary-lg');
+        if (ctaBtn) { ctaBtn.href = 'app.html'; ctaBtn.textContent = 'Open My Diary ♡'; }
+        const ctaNote = document.querySelector('.cta-section .hero-note');
+        if (ctaNote) ctaNote.style.display = 'none';
+      } catch (e) { /* not logged in or supabase unavailable — show defaults */ }
+    })();
+  </script>
+</body>
+</html>
+
+
