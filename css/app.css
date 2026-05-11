@@ -975,25 +975,73 @@ a { text-decoration: none; color: inherit; }
 
 /* Stack nav below brand row on mobile — header is now ~100px tall (wraps) */
 @media (max-width: 600px) {
-  .app-header { flex-wrap: wrap; gap: 8px; padding: 10px 1rem; }
-  .app-nav { order: 3; width: 100%; justify-content: center; }
-  .app-nav-btn { flex: 1; justify-content: center; }
-  .header-controls { gap: 5px; margin-left: auto; }
-  .user-pill { font-size: 0.75rem; padding: 5px 10px; }
-  .header-btn { padding: 6px 10px; font-size: 0.75rem; }
-  .compose-card { padding: 1rem 1.1rem; }
-  .toolbar { flex-direction: column; align-items: stretch; }
-  .toolbar-right { justify-content: space-between; }
-  .requests-grid { grid-template-columns: 1fr; }
-  .add-friend-form { flex-direction: column; }
+  .app-header {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 1rem;
+  }
+
+  .app-nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .app-nav-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .header-controls {
+    gap: 5px;
+    margin-left: auto;
+  }
+
+  .user-pill {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+
+  .header-btn {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+
+  .compose-card {
+    padding: 1rem 1.1rem;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar-right {
+    justify-content: space-between;
+  }
+
+  .requests-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .add-friend-form {
+    flex-direction: column;
+  }
+
   .add-friend-form input,
-  .add-friend-form .btn-primary-sm { border-radius: 12px; }
-  .inner-tab { padding: 8px 12px 10px; font-size: 0.8rem; }
-  .inner-tab svg { display: none; }
-  /* header wraps to ~100px on mobile, adjust compose height */
-  
-  /* #diary-compose.diary-section.active { height: calc(100vh - 180px - 2rem); }
-} */
+  .add-friend-form .btn-primary-sm {
+    border-radius: 12px;
+  }
+
+  .inner-tab {
+    padding: 8px 12px 10px;
+    font-size: 0.8rem;
+  }
+
+  .inner-tab svg {
+    display: none;
+  }
+}
 
 /* replaced 11may */
 #diary-compose.diary-section.active {
