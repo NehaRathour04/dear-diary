@@ -205,7 +205,15 @@ a { text-decoration: none; color: inherit; }
    PAGES
    ══════════════════════════════════════════════ */
 .page { display: none; }
-.page.active { display: block; animation: pageIn 0.22s ease; }
+
+/* .page.active { display: block; animation: pageIn 0.22s ease; } */
+/* replaced 11may */
+.page.active {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  animation: pageIn 0.22s ease;
+}
 
 /* Diary sub-sections (Write / Entries) */
 .diary-section { display: none; }
@@ -237,7 +245,7 @@ a { text-decoration: none; color: inherit; }
   flex: 1;
   display: flex;
   flex-direction: column;
-  /* padding: 1rem 0 1rem; */
+  min-height:0;
   margin-bottom: 0;
 }
 
@@ -245,6 +253,7 @@ a { text-decoration: none; color: inherit; }
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-height: 0;
   background: var(--cream);
   border: 1.5px solid var(--lavender);
   border-radius: 20px;
@@ -285,6 +294,7 @@ a { text-decoration: none; color: inherit; }
 
 #entry-text {
   flex: 1;
+  min-height: 0;
   width: 100%;
   padding: 12px 0;
   padding-bottom: 1.2rem;
@@ -981,5 +991,15 @@ a { text-decoration: none; color: inherit; }
   .inner-tab { padding: 8px 12px 10px; font-size: 0.8rem; }
   .inner-tab svg { display: none; }
   /* header wraps to ~100px on mobile, adjust compose height */
-  #diary-compose.diary-section.active { height: calc(100vh - 180px - 2rem); }
+  
+  /* #diary-compose.diary-section.active { height: calc(100vh - 180px - 2rem); }
+} */
+
+/* replaced 11may */
+#diary-compose.diary-section.active {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
